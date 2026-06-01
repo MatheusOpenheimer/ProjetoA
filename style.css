@@ -3,34 +3,55 @@
     padding: 0;
 }
 nav{
-    width: 100%;
-    height: 50px;
+    padding: 10px;
+    height: 60px;
     background-color: blue;
     display: flex;
     justify-content:space-between;
     align-items: center;
     flex-direction: row;
-    flex-wrap: wrap;
 }
-.opcoes{
-    color: gold;
-    display: flex;
-}
+
 body{
     height: 100vh;
     background-color: darkgrey;
 }
 footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     padding: 30px;
     background-color: darkblue;
     position: relative;
-    left: 0;
-    width: 100%;
+}
+
+.opcoes{
+    color: gold;
+}
+
+footer p{
+    color: gold;
+    font-size: 20px;
 }
 .ola{ 
     display: flex;
     margin: 30px;
     width: 200px;
     height: 200px;
-    background-color: black;
+    background-color: rgb(2, 133, 156);
+}
+.message{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 5px;
+    color: gold;
+}
+.message input{
+    color: gold;
+    background-color: transparent;
+    border: none;
+    border-bottom: gold solid 2px;
+    width: 250px;
+    height: 50px;
 }
