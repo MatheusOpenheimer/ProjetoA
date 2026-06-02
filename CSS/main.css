@@ -1,0 +1,84 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&display=swap');
+@font-face {
+  font-family: 'FonteTitle'; /* O nome que você vai usar para chamá-la */
+  src: url('../fonts/Snowboarding.ttf') format('truetype'); /* Caminho do arquivo */
+  font-weight: normal;
+  font-style: normal;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    background-color: rgb(255, 255, 255);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+nav{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 0 10px;
+    height: 40px;
+    background-color: darkblue;
+}
+
+main{
+    flex: 1;
+}
+
+
+.opcoes{
+    text-decoration: none;
+    font-size: 16px;
+    color: gold;
+}
+#logo{
+    font-size: 28px;
+    font-family: 'FonteTitle', sans-serif;
+}
+
+
+.ola{ 
+    margin: 30px;
+    width: 200px;
+    height: 200px;
+    background-color: rgb(2, 133, 156);
+}
+
+
+/* ---------------------CONFIG DO FOOTER------------- */
+#footer p{
+    color: gold;
+    font-size: 20px;
+}
+#footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 30px;
+    background-color: darkblue;
+    position: relative;
+}
+.message{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 5px;
+    color: gold;
+}
+.message input{
+    color: gold;
+    background-color: transparent;
+    border: none;
+    border-bottom: gold solid 2px;
+    width: 250px;
+    height: 50px;
+}
