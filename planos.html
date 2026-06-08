@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="CSS/main.css">
+    <link rel="stylesheet" href="CSS/planos.css">
     <title>Planos</title>
 </head>
 
@@ -13,15 +15,63 @@
         <a href="index.html" class=opcoes id="logo">Logo</a>
         <a href="index.html" class=opcoes>Home</a>
         <a href="planos.html" class=opcoes>Planos</a>
-        <a href="#footer"class="opcoes">Contato</a>
-        <a href="login.html" class=opcoes>Login</a>
+        <a href="#footer" class="opcoes">Contato</a>
+        <a href="login.html" class=opcoes id="btn-login">Login</a>
     </nav>
 
 
     <main id="main">
-        <div class="container">
-            <div class="ola"></div>
+        <div class="apresentacao">
+            <h3>ESCOLHA SEU PLANO</h3>
+            <p>melhore processos</p>
         </div>
+        <section id="planos">
+            <div class="bloco">
+                <div class="card" id="basic">
+                    <h2>Básico</h2>
+
+                    <ul>
+                        <li>Até 5 usuários</li>
+                        <li>Inspeções ilimitadas</li>
+                        <li>Relatórios PDF</li>
+                    </ul>
+
+                    <h3>R$ 49,90/mês</h3>
+
+                    <button type="button" class="btn">Contratar</button>
+                </div>
+
+                <div class="card" id="premium">
+                    <h2>Empresarial</h2>
+
+                    <ul>
+                        <li>Usuários ilimitados</li>
+                        <li>Dashboard completo</li>
+                        <li>Integrações</li>
+                        <li>Suporte dedicado</li>
+                    </ul>
+
+                    <h3>R$ 199,90/mês</h3>
+
+                    <button type="button" class="btn">Contratar</button>
+                </div>
+
+                <div class="card" id="medium">
+                    <h2>Profissional</h2>
+
+                    <ul>
+                        <li>Até 20 usuários</li>
+                        <li>Dashboard avançado</li>
+                        <li>Relatórios PDF</li>
+                        <li>Suporte prioritário</li>
+                    </ul>
+
+                    <h3>R$ 99,90/mês</h3>
+
+                    <button type="button" class="btn">Contratar</button>
+                </div>
+            </div>
+        </section>
 
     </main>
 
@@ -34,10 +84,9 @@
             <input type="text">
         </div>
         <div class="redes">
-            <p>logo</p>
-            <p>logo</p>
-            <p>logo</p>
-            <p>logo</p>
+            <i class='bx bxl-instagram'></i>
+            <i class='bx bxl-whatsapp'></i>
+            <i class='bx bxl-gmail'></i>
         </div>
     </footer>
 </body>
