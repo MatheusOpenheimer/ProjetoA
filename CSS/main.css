@@ -5,135 +5,203 @@
     src: url('../fonts/Snowboarding.ttf') format('truetype');
 }
 
-:root{
+:root {
     --azul: darkblue;
     --amarelo: gold;
     --branco: white;
 }
 
-
-*{
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
-body{
+body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-
     background-color: white;
 }
 
 /* CONTEUDO */
-main{
+main {
     flex: 1;
 }
 
-
-
 /* ---------------- NAVBAR ---------------- */
 
-nav{
+nav {
     height: 70px;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     padding: 0 30px;
-
     background-color: var(--azul);
+    position: relative;
+    z-index: 1000;
 }
 
-.opcoes{
+.opcoes {
     text-decoration: none;
     color: var(--amarelo);
-
     font-size: 18px;
     transition: 0.3s;
 }
 
-.opcoes:hover{
+.opcoes:hover {
     transform: translateY(-2px);
 }
 
-#btn-login{
-    text-align: center;
-    padding: 2px 10px 2px 10px ;
-    border: 1px solid var(--amarelo);
-    border-radius: 30px;
-}
-
-#btn-login:hover{
-    background-color: var(--amarelo);
-    color: var(--azul);
-}
-
-#logo{
+#logo {
     font-size: 32px;
     font-family: 'FonteTitle', sans-serif;
 }
 
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-acoes {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#btn-login {
+    text-align: center;
+    padding: 4px 16px;
+    border: 1px solid var(--amarelo);
+    border-radius: 30px;
+    font-size: 16px;
+}
+
+#btn-login:hover {
+    background-color: var(--amarelo);
+    color: var(--azul);
+}
+
+/* Botão hambúrguer fica oculto no desktop */
+.btn-menu-mobile {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--amarelo);
+    font-size: 32px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
 /* ---------------- FOOTER ---------------- */
 
-#footer{
+#footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     gap: 50px;
-
     padding: 40px;
-
     background-color: var(--azul);
 }
 
-#footer h1{
+#footer h1 {
     color: var(--amarelo);
     font-size: 28px;
 }
 
-.message{
+.message {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.message input{
+.message input {
     width: 300px;
     height: 45px;
-
     background: transparent;
-
     border: none;
     border-bottom: 2px solid var(--amarelo);
-
     color: white;
 }
 
-.message input:focus{
+.message input:focus {
     outline: none;
 }
 
-.redes{
+.redes {
     display: flex;
     flex-direction: column;
     gap: 20px;
-
 }
 
-.redes i{
+.redes i {
     cursor: pointer;
     color: var(--amarelo);
     font-size: 30px;
 }
 
 .redes i:hover {
-   transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+/* ---------------- RESPONSIVIDADE (MOBILE) ---------------- */
+
+@media (max-width: 768px) {
+    nav {
+        padding: 0 20px;
+    }
+
+    /* Exibe o botão do menu hambúrguer no mobile */
+    .btn-menu-mobile {
+        display: flex;
+    }
+
+    /* Esconde os links e transforma em menu dropdown expansível */
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: var(--azul);
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        border-top: 1px solid rgba(255, 215, 0, 0.2);
+    }
+
+    /* Quando clicado no botão hambúrguer, o JS adiciona a classe .aberto */
+    .nav-links.aberto {
+        display: flex;
+    }
+
+    .nav-links .opcoes {
+        width: 100%;
+        text-align: center;
+        padding: 16px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-links .opcoes:hover {
+        background-color: rgba(255, 215, 0, 0.1);
+        transform: none;
+    }
+
+    .redes {
+        margin-top: 25px;
+        flex-direction: row;
+    }
+
+    .message input {
+        width: 100%;
+        height: 45px;
+    }
 }

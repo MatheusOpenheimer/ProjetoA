@@ -12,11 +12,22 @@
 
 <body>
     <nav>
-        <a href="index.html" class=opcoes id="logo">Logo</a>
-        <a href="index.html" class=opcoes>Home</a>
-        <a href="planos.html" class=opcoes>Planos</a>
-        <a href="#footer" class="opcoes">Contato</a>
-        <a href="login.html" class=opcoes id="btn-login">Login</a>
+        <a href="index.html" class="opcoes" id="logo">Logo</a>
+
+        <!-- Container dos links de navegação -->
+        <div class="nav-links" id="nav-links">
+            <a href="index.html" class="opcoes">Home</a>
+            <a href="planos.html" class="opcoes">Planos</a>
+            <a href="#footer" class="opcoes">Contato</a>
+        </div>
+
+        <!-- Ações da direita: Botão Login + Ícone Hambúrguer Mobile -->
+        <div class="nav-acoes">
+            <a href="login.html" class="opcoes" id="btn-login">Login</a>
+            <button id="menu-toggle" class="btn-menu-mobile" aria-label="Abrir Menu">
+                <i class='bx bx-menu' id="icone-menu"></i>
+            </button>
+        </div>
     </nav>
 
     <main id="main">

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Biblioteca para Leitura Real de QR Code via Câmera -->
+    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+    <link rel="stylesheet" href="../CSS/tecnico.css">
+    <title>Painel do Técnico - Inspeções de Campo</title>
+</head>
+
+<body class="body-tecnico">
+
+    <!-- NAVBAR TÉCNICA -->
+    <nav class="nav-tecnico">
+        <div class="logo-area">
+            <i class='bx bx-spray-can'></i>
+            <span class="logo-painel">Operação de Campo</span>
+        </div>
+        <a href="../login.html" class="btn-sair">
+            <span>Sair</span>
+            <i class='bx bx-log-out'></i>
+        </a>
+    </nav>
+
+    <div class="painel-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar-tecnico">
+            <div class="perfil-tecnico">
+                <i class='bx bxs-user-badge icone-tec'></i>
+                <h4 id="nome-tecnico-logado">Carlos Mendes</h4>
+                <span class="tag-tecnico">Técnico Operacional</span>
+            </div>
+
+            <nav class="menu-tecnico">
+                <button class="nav-item ativo" data-alvo="tela-avaliacao">
+                    <i class='bx bx-clipboard'></i>
+                    <span>Realizar Inspeção</span>
+                </button>
+                <button class="nav-item" data-alvo="tela-meus-relatorios">
+                    <i class='bx bx-history'></i>
+                    <span>Relatórios Emitidos</span>
+                </button>
+            </nav>
+        </aside>
+
+        <!-- ÁREA CENTRAL -->
+        <main class="area-conteudo">
+
+            <!-- 1. TELA DE INSPEÇÃO -->
+            <section id="tela-avaliacao" class="secao-tecnico ativa">
+                <div class="cabecalho-secao">
+                    <h2>Nova Inspeção & Laudo Sanitário</h2>
+                    <p>Preencha os dados da aplicação, escaneie os pontos com fotos e colete a assinatura.</p>
+                </div>
+
+                <div class="card-tecnico">
+                    <form id="form-inspecao-tecnico">
+
+                        <!-- ETAPA 1: DADOS GERAIS -->
+                        <h3 class="subtitulo-bloco"><i class='bx bx-info-circle'></i> 1. Identificação do Atendimento</h3>
+                        <div class="form-grid">
+                            <div class="campo">
+                                <label for="select-empresa-tec">Cliente Atendido:</label>
+                                <select id="select-empresa-tec" required>
+                                    <option value="" disabled selected>Escolha o cliente...</option>
+                                </select>
+                            </div>
+
+                            <div class="campo">
+                                <label for="data-inspecao-tec">Data da Aplicação:</label>
+                                <input type="date" id="data-inspecao-tec" required>
+                            </div>
+
+                            <div class="campo">
+                                <label for="tipo-aplicacao-tec">Método de Controle:</label>
+                                <select id="tipo-aplicacao-tec" required>
+                                    <option value="Pulverização Líquida">Pulverização Líquida</option>
+                                    <option value="Gel Inseticida">Gel Inseticida</option>
+                                    <option value="Iscagem Raticida">Iscagem Raticida</option>
+                                    <option value="Atomização / Termonebulização">Atomização / Termonebulização</option>
+                                    <option value="Monitoramento Preventivo">Monitoramento Preventivo</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- ETAPA 2: CONTROLE SANITÁRIO E QUÍMICOS -->
+                        <h3 class="subtitulo-bloco mt-25"><i class='bx bx-flask'></i> 2. Registro Químico & Lotes (Anvisa)</h3>
+                        <div class="form-grid">
+                            <div class="campo">
+                                <label for="quimico-nome">Produto Comercial:</label>
+                                <input type="text" id="quimico-nome" placeholder="Ex: K-Othrine WG 250" required>
+                            </div>
+                            <div class="campo">
+                                <label for="quimico-ativo">Princípio Ativo & Reg. MS:</label>
+                                <input type="text" id="quimico-ativo" placeholder="Ex: Deltametrina / MS 3.0022.0001" required>
+                            </div>
+                            <div class="campo">
+                                <label for="quimico-lote">Número do Lote:</label>
+                                <input type="text" id="quimico-lote" placeholder="Ex: LT-2026/88" required>
+                            </div>
+                            <div class="campo">
+                                <label for="quimico-qtd">Dosagem / Quantidade:</label>
+                                <input type="text" id="quimico-qtd" placeholder="Ex: 500ml calda" required>
+                            </div>
+                        </div>
+
+                        <!-- ETAPA 3: LEITOR QR CODE E CHECKLIST DOS PONTOS -->
+                        <div class="bloco-pontos-checklist mt-25" id="bloco-pontos-checklist" style="display: none;">
+                            <div class="topo-checklist">
+                                <h3><i class='bx bx-check-square'></i> 3. Checklist dos Pontos Mapeados</h3>
+                                <button type="button" id="btn-abrir-scanner-qr" class="btn-qr">
+                                    <i class='bx bx-camera'></i> Escanear QR Code do Ponto
+                                </button>
+                            </div>
+
+                            <!-- ÁREA DA CÂMERA DO LEITOR QR CODE -->
+                            <div id="camera-qr-container" class="camera-qr-container" style="display: none;">
+                                <div id="reader-qr"></div>
+                                <button type="button" id="btn-fechar-scanner-qr" class="btn-fechar-qr">
+                                    <i class='bx bx-x'></i> Fechar Câmera
+                                </button>
+                            </div>
+
+                            <p class="legenda-obrigatorio">* A foto de cada ponto é obrigatória para emissão do laudo.</p>
+
+                            <!-- CONTAINER ONDE OS PONTOS SÃO RENDERIZADOS -->
+                            <div id="container-pontos-checklist" class="grade-checklist"></div>
+                        </div>
+
+                        <div id="aviso-selecione" class="aviso-box mt-20">
+                            <i class='bx bx-info-circle'></i> Selecione um cliente acima para carregar seus pontos de monitoramento.
+                        </div>
+
+                        <!-- ETAPA 4: ASSINATURA DIGITAL NO CANVAS -->
+                        <div class="bloco-assinatura mt-25" id="bloco-assinatura" style="display: none;">
+                            <h3><i class='bx bx-pen'></i> 4. Assinatura Digital do Cliente</h3>
+                            <p class="legenda-obrigatorio">O responsável no local deve assinar na área abaixo com o dedo ou mouse.</p>
+
+                            <div class="campo mt-10">
+                                <label for="nome-responsavel-cliente">Nome do Responsável no Local:</label>
+                                <input type="text" id="nome-responsavel-cliente" placeholder="Ex: Marcos Souza (Gerente)" required>
+                            </div>
+
+                            <div class="canvas-container mt-10">
+                                <canvas id="canvas-assinatura" width="450" height="150"></canvas>
+                                <button type="button" id="btn-limpar-assinatura" class="btn-limpar-canvas">
+                                    <i class='bx bx-eraser'></i> Limpar Assinatura
+                                </button>
+                            </div>
+                        </div>
+
+                        <button type="submit" id="btn-salvar-inspecao" class="btn-concluir-inspecao mt-25" style="display: none;">
+                            <i class='bx bx-check-double'></i> Finalizar Atendimento e Gerar Laudo
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- 2. TELA DE HISTÓRICO DE RELATÓRIOS DO TÉCNICO -->
+            <section id="tela-meus-relatorios" class="secao-tecnico">
+                <div class="cabecalho-secao">
+                    <h2>Histórico de Relatórios Emitidos</h2>
+                    <p>Consulte todos os laudos gerados com assinaturas e registros fotográficos.</p>
+                </div>
+
+                <div class="card-tecnico">
+                    <table class="tabela-dados">
+                        <thead>
+                            <tr>
+                                <th>OS</th>
+                                <th>Cliente</th>
+                                <th>Data</th>
+                                <th>Produto Químico</th>
+                                <th>Técnico</th>
+                                <th>Laudo</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-relatorios-tec"></tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- MODAL DE VISUALIZAÇÃO DO LAUDO COMPLETO -->
+    <div id="modal-laudo" class="modal-laudo">
+        <div class="modal-conteudo">
+            <span class="fechar-modal" id="fechar-modal">&times;</span>
+            <div id="conteudo-laudo-renderizado"></div>
+        </div>
+    </div>
+
+    <!-- Scripts na ordem correta -->
+    <script src="../JS/dados.js"></script>
+    <script src="../JS/tecnico.js"></script>
+</body>
+</html>

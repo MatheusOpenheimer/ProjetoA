@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../CSS/empresa.css">
+    <title>Painel da Empresa - Controle de Pragas</title>
+</head>
+
+<body class="body-painel">
+
+    <!-- NAVBAR EXCLUSIVA DA EMPRESA -->
+    <nav class="nav-painel">
+        <a href="empresa.html" class="logo-painel" id="logo">Logo</a>
+        <a href="../login.html" class="btn-sair">
+            <span>Sair</span>
+            <i class='bx bx-log-out'></i>
+        </a>
+    </nav>
+
+    <div class="painel-layout">
+
+        <!-- SIDEBAR DA EMPRESA (ADMIN) -->
+        <aside class="sidebar-sistema">
+            <div class="perfil-resumo">
+                <i class='bx bxs-business icone-empresa'></i>
+                <h4 id="nome-empresa-logada">Dedetizadora Silva</h4>
+                <span class="badge-plano">Plano Profissional</span>
+            </div>
+
+            <nav class="menu-sistema">
+                <button class="nav-item ativo" data-alvo="tela-perfil">
+                    <i class='bx bx-id-card'></i>
+                    <span>Dados da Minha Empresa</span>
+                </button>
+
+                <button class="nav-item" data-alvo="tela-clientes">
+                    <i class='bx bx-buildings'></i>
+                    <span>Clientes & Pontos</span>
+                </button>
+
+                <button class="nav-item" data-alvo="tela-tecnicos">
+                    <i class='bx bx-user-pin'></i>
+                    <span>Nossos Técnicos</span>
+                </button>
+
+                <button class="nav-item" data-alvo="tela-relatorios">
+                    <i class='bx bx-folder-open'></i>
+                    <span>Relatórios por Cliente</span>
+                </button>
+            </nav>
+        </aside>
+
+        <!-- ÁREA CENTRAL -->
+        <main class="area-conteudo">
+
+            <!-- 1. DADOS CADASTRAIS DA EMPRESA DE DEDETIZAÇÃO -->
+            <section id="tela-perfil" class="secao-painel ativa">
+                <div class="cabecalho-secao">
+                    <h2>Dados Cadastrais da Dedetizadora</h2>
+                    <p>Informações institucionais e plano ativo da sua empresa.</p>
+                </div>
+
+                <div class="grid-duplo">
+                    <div class="card-info">
+                        <h3>Informações Gerais</h3>
+                        <div class="item-dado"><strong>Razão Social:</strong> <span>Silva & Filhos Controle de Pragas LTDA</span></div>
+                        <div class="item-dado"><strong>Nome Fantasia:</strong> <span>Dedetizadora Silva</span></div>
+                        <div class="item-dado"><strong>CNPJ:</strong> <span>12.345.678/0001-90</span></div>
+                        <div class="item-dado"><strong>Responsável Técnico:</strong> <span>Dr. Marcos Silva - CRBio 4421/SP</span></div>
+                        <div class="item-dado"><strong>E-mail:</strong> <span>contato@dedetizadorasilva.com</span></div>
+                        <div class="item-dado"><strong>Telefone Comercial:</strong> <span>(11) 98765-4321</span></div>
+                    </div>
+
+                    <div class="card-info destaque-plano">
+                        <h3>Plano Contratado</h3>
+                        <div class="plano-box">
+                            <span class="plano-nome">Profissional</span>
+                            <span class="plano-preco">R$ 99,90/mês</span>
+                        </div>
+                        <ul class="lista-recursos">
+                            <li><i class='bx bx-check'></i> Mapeamento ilimitado de pontos</li>
+                            <li><i class='bx bx-check'></i> Acesso mobile para os técnicos</li>
+                            <li><i class='bx bx-check'></i> Emissão de laudos automáticos</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. GESTÃO DE CLIENTES & PONTOS -->
+            <section id="tela-clientes" class="secao-painel">
+                <div class="cabecalho-secao">
+                    <h2>Clientes Atendidos e Mapeamento de Pontos</h2>
+                    <p>Cadastre as empresas atendidas e seus respectivos pontos de armadilhas/iscagem.</p>
+                </div>
+
+                <div class="card-info">
+                    <h3>Cadastrar Novo Cliente</h3>
+                    <form id="form-cliente">
+                        <div class="form-grid">
+                            <div class="campo">
+                                <label for="cliente-nome">Razão Social / Nome Fantasia:</label>
+                                <input type="text" id="cliente-nome" placeholder="Ex: Padaria Bella Vista" required>
+                            </div>
+                            <div class="campo">
+                                <label for="cliente-doc">CNPJ / CPF do Cliente:</label>
+                                <input type="text" id="cliente-doc" placeholder="00.000.000/0000-00" required>
+                            </div>
+                            <div class="campo">
+                                <label for="cliente-endereco">Endereço da Unidade:</label>
+                                <input type="text" id="cliente-endereco" placeholder="Rua, Número, Bairro" required>
+                            </div>
+                            <div class="campo">
+                                <label for="cliente-contato">Contato do Responsável:</label>
+                                <input type="text" id="cliente-contato" placeholder="(11) 99999-9999" required>
+                            </div>
+                        </div>
+
+                        <!-- LISTAGEM DE PONTOS DESTE CLIENTE -->
+                        <div class="bloco-pontos-cadastro">
+                            <div class="topo-pontos">
+                                <h4><i class='bx bx-map-pin'></i> Pontos de Monitoramento do Cliente</h4>
+                                <button type="button" id="btn-adicionar-ponto-form" class="btn-secundario">
+                                    <i class='bx bx-plus'></i> Adicionar Ponto
+                                </button>
+                            </div>
+                            <p class="legenda-pontos">Locais mapeados onde o técnico fará vistorias e reposições.</p>
+                            
+                            <div id="container-inputs-pontos" class="lista-inputs-pontos">
+                                <div class="item-input-ponto">
+                                    <input type="text" class="input-ponto" placeholder="Ex: P01 - Depósito de Insumos" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-salvar mt-20">Salvar Cliente e Pontos</button>
+                    </form>
+                </div>
+
+                <div class="card-info mt-20">
+                    <h3>Clientes Cadastrados</h3>
+                    <table class="tabela-dados">
+                        <thead>
+                            <tr>
+                                <th>Cliente</th>
+                                <th>Documento</th>
+                                <th>Endereço</th>
+                                <th>Pontos Mapeados</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lista-clientes"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 3. GESTÃO DE TÉCNICOS -->
+            <section id="tela-tecnicos" class="secao-painel">
+                <div class="cabecalho-secao">
+                    <h2>Nossa Equipe Técnica</h2>
+                    <p>Cadastre os técnicos que realizarão as vistorias em campo.</p>
+                </div>
+
+                <div class="card-info">
+                    <h3>Cadastrar Novo Técnico</h3>
+                    <form id="form-tecnico" class="form-grid">
+                        <div class="campo">
+                            <label for="tec-nome">Nome Completo:</label>
+                            <input type="text" id="tec-nome" placeholder="Ex: Carlos Mendes" required>
+                        </div>
+                        <div class="campo">
+                            <label for="tec-cpf">CPF do Técnico (Login de acesso):</label>
+                            <input type="text" id="tec-cpf" placeholder="000.000.000-00" required>
+                        </div>
+                        <div class="campo">
+                            <label for="tec-especialidade">Especialidade:</label>
+                            <select id="tec-especialidade" required>
+                                <option value="Dedetização Geral">Dedetização Geral</option>
+                                <option value="Descupinização">Descupinização</option>
+                                <option value="Desratização">Desratização</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-salvar">Cadastrar Técnico</button>
+                    </form>
+                </div>
+
+                <div class="card-info mt-20">
+                    <h3>Técnicos Habilitados</h3>
+                    <table class="tabela-dados">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>CPF</th>
+                                <th>Especialidade</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lista-tecnicos"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 4. RELATÓRIOS ORGANIZADOS POR CLIENTE -->
+            <section id="tela-relatorios" class="secao-painel">
+                <div class="cabecalho-secao">
+                    <h2>Relatórios e Laudos por Cliente</h2>
+                    <p>Selecione um cliente para abrir seu histórico de inspeções.</p>
+                </div>
+
+                <div class="grade-empresas-relatorios" id="grade-empresas-relatorios"></div>
+
+                <div id="painel-detalhe-relatorios" class="card-info mt-20" style="display: none;">
+                    <div class="topo-relatorio-empresa">
+                        <h3 id="titulo-empresa-selecionada">Relatórios de: <span></span></h3>
+                        <button type="button" id="btn-fechar-detalhes" class="btn-secundario">Voltar para Todos os Clientes</button>
+                    </div>
+
+                    <table class="tabela-dados mt-20">
+                        <thead>
+                            <tr>
+                                <th>OS</th>
+                                <th>Data</th>
+                                <th>Técnico Responsável</th>
+                                <th>Serviço Realizado</th>
+                                <th>Status dos Pontos</th>
+                                <th>Laudo</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lista-relatorios-empresa"></tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Scripts com caminhos atualizados -->
+    <script src="../JS/dados.js"></script>
+    <script src="../JS/empresa.js"></script>
+</body>
+</html>

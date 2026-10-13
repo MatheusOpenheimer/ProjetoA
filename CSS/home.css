@@ -157,3 +157,13 @@
     font-size: 20px;
     margin-bottom: 25px;
 }
+
+@media (max-width: 768px) {
+    #Apresentacao {
+        flex-direction: column-reverse ; 
+    }
+
+   .img,.texto {
+        flex: initial;
+    }
+}

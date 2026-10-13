@@ -1,0 +1,575 @@
+/* ==========================================================================
+   CONFIGURAÇÕES GERAIS, FONTES E VARIÁVEIS EXCLUSIVAS DO PAINEL
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@font-face {
+    font-family: 'FonteTitle';
+    src: url('../fonts/Snowboarding.ttf') format('truetype');
+}
+
+:root {
+    --painel-azul: darkblue;
+    --painel-amarelo: gold;
+    --painel-fundo: #eef2f7;
+    --painel-branco: #ffffff;
+    --painel-texto-escuro: #2c3e50;
+    --painel-texto-suave: #7f8c8d;
+    --painel-borda: #cbd5e0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.body-painel {
+    background-color: var(--painel-fundo);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================================================
+   NAVBAR DO PAINEL
+   ========================================================================== */
+.nav-painel {
+    height: 65px;
+    background-color: var(--painel-azul);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+.logo-painel {
+    text-decoration: none;
+    color: var(--painel-amarelo);
+    font-size: 28px;
+    font-family: 'FonteTitle', sans-serif;
+}
+
+.btn-sair {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--painel-amarelo);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 6px 14px;
+    border: 1px solid var(--painel-amarelo);
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.btn-sair:hover {
+    background-color: var(--painel-amarelo);
+    color: var(--painel-azul);
+}
+
+/* ==========================================================================
+   ESTRUTURA DO DASHBOARD (SIDEBAR + CONTEÚDO)
+   ========================================================================== */
+.painel-layout {
+    display: flex;
+    flex: 1;
+    min-height: calc(100vh - 65px);
+}
+
+/* SIDEBAR */
+.sidebar-sistema {
+    width: 280px;
+    background-color: var(--painel-branco);
+    border-right: 1px solid #dce2eb;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 15px;
+}
+
+.perfil-resumo {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eef2f7;
+    margin-bottom: 15px;
+}
+
+.icone-empresa {
+    font-size: 48px;
+    color: var(--painel-azul);
+}
+
+.perfil-resumo h4 {
+    font-size: 16px;
+    color: var(--painel-texto-escuro);
+    margin: 6px 0 4px;
+}
+
+.badge-plano {
+    font-size: 12px;
+    background-color: #fef8e7;
+    color: #b78103;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+    border: 1px solid #f6d88c;
+}
+
+.menu-sistema {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: transparent;
+    border: none;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #4b5d6e;
+    cursor: pointer;
+    text-align: left;
+    transition: 0.2s;
+    width: 100%;
+}
+
+.nav-item i {
+    font-size: 20px;
+}
+
+.nav-item:hover {
+    background-color: #f0f4f9;
+    color: var(--painel-azul);
+}
+
+.nav-item.ativo {
+    background-color: var(--painel-azul);
+    color: var(--painel-amarelo);
+}
+
+/* ÁREA DE CONTEÚDO PRINCIPAL */
+.area-conteudo {
+    flex: 1;
+    padding: 30px 40px;
+    overflow-y: auto;
+}
+
+.secao-painel {
+    display: none;
+    animation: surgir 0.3s ease;
+}
+
+.secao-painel.ativa {
+    display: block;
+}
+
+@keyframes surgir {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.cabecalho-secao {
+    margin-bottom: 25px;
+}
+
+.cabecalho-secao h2 {
+    color: var(--painel-azul);
+    font-size: 24px;
+}
+
+.cabecalho-secao p {
+    color: var(--painel-texto-suave);
+    font-size: 14px;
+}
+
+/* ==========================================================================
+   CARDS, GRIDS E TABELAS
+   ========================================================================== */
+.grid-duplo {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 20px;
+}
+
+.card-info {
+    background: var(--painel-branco);
+    padding: 22px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.card-info h3 {
+    font-size: 17px;
+    color: #34495e;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #edf2f7;
+    padding-bottom: 8px;
+}
+
+.item-dado {
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #4a5568;
+}
+
+.item-dado strong {
+    color: #1a202c;
+}
+
+.destaque-plano {
+    background: linear-gradient(135deg, var(--painel-azul), #030b42);
+    color: var(--painel-branco);
+}
+
+.destaque-plano h3 {
+    color: var(--painel-amarelo);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.plano-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.plano-nome {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.plano-preco {
+    background: var(--painel-amarelo);
+    color: black;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.lista-recursos {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 13px;
+}
+
+.lista-recursos i {
+    color: var(--painel-amarelo);
+    margin-right: 6px;
+}
+
+/* ==========================================================================
+   FORMULÁRIOS & PONTOS
+   ========================================================================== */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.campo label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #4a5568;
+}
+
+.campo input, .campo select {
+    padding: 10px;
+    border: 1px solid var(--painel-borda);
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    background-color: var(--painel-branco);
+}
+
+.campo input:focus, .campo select:focus {
+    border-color: var(--painel-azul);
+}
+
+.bloco-pontos-cadastro {
+    margin-top: 20px;
+    background-color: #f8fafc;
+    border: 1px dashed var(--painel-borda);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.topo-pontos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topo-pontos h4 {
+    color: var(--painel-azul);
+    font-size: 15px;
+}
+
+.legenda-pontos {
+    font-size: 12px;
+    color: #718096;
+    margin: 5px 0 12px;
+}
+
+.btn-secundario {
+    background: #e2e8f0;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #2d3748;
+    transition: 0.2s;
+}
+
+.btn-secundario:hover {
+    background: #cbd5e0;
+}
+
+.lista-inputs-pontos {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.item-input-ponto {
+    display: flex;
+    gap: 10px;
+}
+
+.item-input-ponto input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid var(--painel-borda);
+    border-radius: 6px;
+    outline: none;
+}
+
+.btn-remover-ponto {
+    background: #fed7d7;
+    color: #c53030;
+    border: none;
+    border-radius: 6px;
+    padding: 0 12px;
+    cursor: pointer;
+}
+
+.btn-salvar {
+    background-color: var(--painel-azul);
+    color: var(--painel-amarelo);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-salvar:hover {
+    opacity: 0.95;
+    transform: translateY(-1px);
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+/* ==========================================================================
+   TABELAS E AVALIAÇÕES
+   ========================================================================== */
+.tabela-dados {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 14px;
+}
+
+.tabela-dados th, .tabela-dados td {
+    padding: 12px;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.tabela-dados th {
+    background-color: #f7fafc;
+    color: #4a5568;
+    font-weight: 600;
+}
+
+.badge-ponto {
+    display: inline-block;
+    background-color: #ebf8ff;
+    color: #2b6cb0;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    margin: 2px;
+    border: 1px solid #bee3f8;
+}
+
+.tag-status.ativo {
+    background-color: #def7ec;
+    color: #03543f;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.btn-pdf {
+    background: transparent;
+    border: 1px solid #e53e3e;
+    color: #e53e3e;
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-pdf:hover {
+    background: #e53e3e;
+    color: white;
+}
+
+.alerta-vazio {
+    background-color: #ebf8ff;
+    color: #2b6cb0;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.grade-pontos-avaliacao {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.card-ponto-item {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card-ponto-item h5 {
+    font-size: 14px;
+    color: var(--painel-azul);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.card-ponto-item select, .card-ponto-item input {
+    padding: 8px;
+    border: 1px solid var(--painel-borda);
+    border-radius: 6px;
+    font-size: 13px;
+    outline: none;
+}
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+    .painel-layout {
+        flex-direction: column;
+    }
+    .sidebar-sistema {
+        width: 100%;
+    }
+    .grid-duplo, .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* GRADE DE EMPRESAS NA ABA DE RELATÓRIOS */
+.grade-empresas-relatorios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.card-empresa-relatorio {
+    background: #ffffff;
+    border: 1px solid var(--painel-borda);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-empresa-relatorio i {
+    font-size: 40px;
+    color: var(--painel-azul);
+}
+
+.card-empresa-relatorio h4 {
+    color: var(--painel-texto-escuro);
+    font-size: 16px;
+}
+
+.card-empresa-relatorio p {
+    font-size: 13px;
+    color: var(--painel-texto-suave);
+}
+
+.badge-qtd-relatorios {
+    background: #ebf8ff;
+    color: #2b6cb0;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.btn-abrir-relatorios {
+    margin-top: 5px;
+    width: 100%;
+    background-color: var(--painel-azul);
+    color: var(--painel-amarelo);
+    border: none;
+    padding: 8px 0;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-abrir-relatorios:hover {
+    opacity: 0.9;
+}
+
+.topo-relatorio-empresa {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #edf2f7;
+    padding-bottom: 15px;
+}

@@ -1,0 +1,435 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --tec-azul: #0a2540;
+    --tec-amarelo: gold;
+    --tec-fundo: #f4f7fa;
+    --tec-branco: #ffffff;
+    --tec-borda: #dce2eb;
+    --tec-verde: #10b981;
+    --tec-vermelho: #ef4444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.body-tecnico {
+    background-color: var(--tec-fundo);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-tecnico {
+    height: 60px;
+    background-color: var(--tec-azul);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--tec-amarelo);
+    font-size: 20px;
+}
+
+.logo-painel {
+    font-weight: 700;
+}
+
+.btn-sair {
+    color: var(--tec-amarelo);
+    text-decoration: none;
+    border: 1px solid var(--tec-amarelo);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: 0.2s;
+}
+
+.btn-sair:hover {
+    background: var(--tec-amarelo);
+    color: var(--tec-azul);
+}
+
+.painel-layout {
+    display: flex;
+    flex: 1;
+}
+
+.sidebar-tecnico {
+    width: 260px;
+    background: var(--tec-branco);
+    border-right: 1px solid var(--tec-borda);
+    padding: 20px 15px;
+}
+
+.perfil-tecnico {
+    text-align: center;
+    border-bottom: 1px solid var(--tec-borda);
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.icone-tec {
+    font-size: 44px;
+    color: var(--tec-azul);
+}
+
+.tag-tecnico {
+    background: #e6fffa;
+    color: #047857;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.menu-tecnico {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #4b5563;
+    width: 100%;
+    text-align: left;
+    transition: 0.2s;
+}
+
+.nav-item.ativo {
+    background: var(--tec-azul);
+    color: var(--tec-amarelo);
+}
+
+.area-conteudo {
+    flex: 1;
+    padding: 25px 35px;
+    overflow-y: auto;
+}
+
+.secao-tecnico {
+    display: none;
+}
+
+.secao-tecnico.ativa {
+    display: block;
+}
+
+.cabecalho-secao h2 {
+    color: var(--tec-azul);
+    font-size: 22px;
+}
+
+.cabecalho-secao p {
+    color: #6b7280;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.card-tecnico {
+    background: var(--tec-branco);
+    padding: 24px;
+    border-radius: 10px;
+    border: 1px solid var(--tec-borda);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+
+.subtitulo-bloco {
+    font-size: 16px;
+    color: var(--tec-azul);
+    border-bottom: 1px solid var(--tec-borda);
+    padding-bottom: 6px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.campo label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.campo input, .campo select {
+    padding: 10px;
+    border: 1px solid var(--tec-borda);
+    border-radius: 6px;
+    outline: none;
+    font-size: 13px;
+}
+
+.campo input:focus, .campo select:focus {
+    border-color: var(--tec-azul);
+}
+
+/* SCANNER QR CODE */
+.topo-checklist {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.btn-qr {
+    background-color: var(--tec-azul);
+    color: var(--tec-amarelo);
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: 0.2s;
+}
+
+.camera-qr-container {
+    background: #000;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#reader-qr {
+    width: 100%;
+    max-width: 380px;
+}
+
+.btn-fechar-qr {
+    margin-top: 10px;
+    background: var(--tec-vermelho);
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.legenda-obrigatorio {
+    font-size: 12px;
+    color: #b91c1c;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+/* CARDS DOS PONTOS */
+.grade-checklist {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+}
+
+.card-item-ponto {
+    background: #f8fafc;
+    border: 1px solid var(--tec-borda);
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.card-item-ponto.ponto-destacado {
+    border: 2px solid #2563eb;
+    background-color: #eff6ff;
+    box-shadow: 0 0 12px rgba(37, 99, 235, 0.3);
+}
+
+.card-item-ponto h5 {
+    color: var(--tec-azul);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.foto-ponto-preview {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    display: none;
+    margin-top: 5px;
+}
+
+/* CANVAS ASSINATURA */
+.canvas-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+#canvas-assinatura {
+    border: 2px dashed #94a3b8;
+    background-color: #ffffff;
+    border-radius: 8px;
+    cursor: crosshair;
+    touch-action: none;
+}
+
+.btn-limpar-canvas {
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.btn-concluir-inspecao {
+    background: var(--tec-verde);
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-concluir-inspecao:hover {
+    background: #059669;
+}
+
+.aviso-box {
+    background: #eff6ff;
+    color: #1d4ed8;
+    padding: 15px;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+.mt-10 { margin-top: 10px; }
+.mt-20 { margin-top: 20px; }
+.mt-25 { margin-top: 25px; }
+
+/* TABELA */
+.tabela-dados {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.tabela-dados th, .tabela-dados td {
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--tec-borda);
+    text-align: left;
+}
+
+.tabela-dados th {
+    background-color: #f8fafc;
+    font-weight: 600;
+    color: #475569;
+}
+
+.btn-pdf {
+    background: #dc2626;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* MODAL DE LAUDO */
+.modal-laudo {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-conteudo {
+    background: white;
+    width: 100%;
+    max-width: 650px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 10px;
+    padding: 25px;
+    position: relative;
+}
+
+.fechar-modal {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #64748b;
+}
+
+@media (max-width: 800px) {
+    .painel-layout {
+        flex-direction: column;
+    }
+    .sidebar-tecnico {
+        width: 100%;
+    }
+    #canvas-assinatura {
+        width: 100%;
+    }
+}

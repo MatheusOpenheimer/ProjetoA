@@ -12,155 +12,164 @@
 
 <body>
     <nav>
-        <a href="index.html" class=opcoes id="logo">Logo</a>
-        <a href="index.html" class=opcoes>Home</a>
-        <a href="planos.html" class=opcoes>Planos</a>
-        <a href="#footer" class="opcoes">Contato</a>
-        <a href="login.html" class=opcoes id="btn-login">Login</a>
+        <a href="index.html" class="opcoes" id="logo">Logo</a>
+
+        <!-- Container dos links de navegação -->
+        <div class="nav-links" id="nav-links">
+            <a href="index.html" class="opcoes">Home</a>
+            <a href="planos.html" class="opcoes">Planos</a>
+            <a href="#footer" class="opcoes">Contato</a>
+        </div>
+
+        <!-- Ações da direita: Botão Login + Ícone Hambúrguer Mobile -->
+        <div class="nav-acoes">
+            <a href="login.html" class="opcoes" id="btn-login">Login</a>
+            <button id="menu-toggle" class="btn-menu-mobile" aria-label="Abrir Menu">
+                <i class='bx bx-menu' id="icone-menu"></i>
+            </button>
+        </div>
     </nav>
 
 
     <main id="main">
-        <main id="main">
-            <div class="container">
+        <!-- HERO -->
+        <section id="Apresentacao">
+            <div class="img">
+                <!-- imagem do sistema -->
+            </div>
 
-                <!-- HERO -->
-                <section id="Apresentacao">
+            <div class="texto">
 
-                    <div class="img">
-                        <!-- imagem do sistema -->
-                    </div>
+                <h1>Automatize suas inspeções de controle de pragas</h1>
 
-                    <div class="texto">
+                <p>
+                    Transforme a forma como sua empresa realiza inspeções e gerencia
+                    informações em campo.
+                </p>
 
-                        <h1>Automatize suas inspeções de controle de pragas</h1>
+                <p>
+                    Nossa plataforma foi desenvolvida especialmente para empresas de
+                    dedetização e controle de pragas que buscam mais agilidade,
+                    organização e precisão em seus processos.
+                </p>
 
-                        <p>
-                            Transforme a forma como sua empresa realiza inspeções e gerencia
-                            informações em campo.
-                        </p>
+                <a href="planos.html" class="btn">
+                    Conheça nossos planos
+                </a>
 
-                        <p>
-                            Nossa plataforma foi desenvolvida especialmente para empresas de
-                            dedetização e controle de pragas que buscam mais agilidade,
-                            organização e precisão em seus processos.
-                        </p>
+            </div>
 
-                        <a href="planos.html" class="btn">
-                            Conheça nossos planos
-                        </a>
+        </section>
 
-                    </div>
+        <!-- BENEFÍCIOS -->
+        <section id="beneficios">
 
-                </section>
+            <h2>Por que utilizar nossa plataforma?</h2>
 
-                <!-- BENEFÍCIOS -->
-                <section id="beneficios">
+            <div class="cards">
 
-                    <h2>Por que utilizar nossa plataforma?</h2>
-
-                    <div class="cards">
-
-                        <div class="card">
-                            <h3>Inspeções Digitais</h3>
-                            <p>
-                                Elimine formulários em papel e registre informações
-                                diretamente pelo celular ou computador.
-                            </p>
-                        </div>
-
-                        <div class="card">
-                            <h3>Relatórios Automáticos</h3>
-                            <p>
-                                Gere relatórios profissionais em segundos, reduzindo
-                                retrabalho e erros manuais.
-                            </p>
-                        </div>
-
-                        <div class="card">
-                            <h3>Histórico Centralizado</h3>
-                            <p>
-                                Tenha acesso rápido a todas as inspeções e atendimentos
-                                realizados.
-                            </p>
-                        </div>
-
-                    </div>
-
-                </section>
-
-                <hr class="divisor"></hr>
-
-                <!-- FUNCIONALIDADES -->
-                <section id="funcionalidades">
-
-                    <h2>Funcionalidades</h2>
-
-                    <div class="cards">
-
-                        <div class="card">
-                            <h3>Registro de Ocorrências</h3>
-                            <p>
-                                Controle focos de infestação e acompanhe ações corretivas.
-                            </p>
-                        </div>
-
-                        <div class="card">
-                            <h3>Checklists Personalizados</h3>
-                            <p>
-                                Crie inspeções adaptadas ao seu método de trabalho.
-                            </p>
-                        </div>
-
-                        <div class="card">
-                            <h3>Gestão de Clientes</h3>
-                            <p>
-                                Organize contratos, visitas e históricos em um único local.
-                            </p>
-                        </div>
-
-                        <div class="card">
-                            <h3>Dashboard Gerencial</h3>
-                            <p>
-                                Visualize indicadores e acompanhe o desempenho da operação.
-                            </p>
-                        </div>
-
-                    </div>
-
-                </section>
-
-                <!-- CTA -->
-                <section id="cta">
-
-                    <h2>Modernize sua operação</h2>
+                <div class="card">
+                    <h3>Inspeções Digitais</h3>
                     <p>
-                        Menos papel, mais controle. Mais eficiência, melhores resultados.
+                        Elimine formulários em papel e registre informações
+                        diretamente pelo celular ou computador.
                     </p>
+                </div>
 
-                    <a href="planos.html" class="btn">
-                        Começar Agora
-                    </a>
+                <div class="card">
+                    <h3>Relatórios Automáticos</h3>
+                    <p>
+                        Gere relatórios profissionais em segundos, reduzindo
+                        retrabalho e erros manuais.
+                    </p>
+                </div>
 
-                </section>
+                <div class="card">
+                    <h3>Histórico Centralizado</h3>
+                    <p>
+                        Tenha acesso rápido a todas as inspeções e atendimentos
+                        realizados.
+                    </p>
+                </div>
 
             </div>
-        </main>
+
+        </section>
+
+        <hr class="divisor">
+        </hr>
+
+        <!-- FUNCIONALIDADES -->
+        <section id="funcionalidades">
+
+            <h2>Funcionalidades</h2>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Registro de Ocorrências</h3>
+                    <p>
+                        Controle focos de infestação e acompanhe ações corretivas.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Checklists Personalizados</h3>
+                    <p>
+                        Crie inspeções adaptadas ao seu método de trabalho.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Gestão de Clientes</h3>
+                    <p>
+                        Organize contratos, visitas e históricos em um único local.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Dashboard Gerencial</h3>
+                    <p>
+                        Visualize indicadores e acompanhe o desempenho da operação.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- CTA -->
+        <section id="cta">
+
+            <h2>Modernize sua operação</h2>
+            <p>
+                Menos papel, mais controle. Mais eficiência, melhores resultados.
+            </p>
+
+            <a href="planos.html" class="btn">
+                Começar Agora
+            </a>
+
+        </section>
+
+        </div>
+    </main>
 
 
-        <footer id="footer">
-            <div class="message">
-                <h1>Mensagem:</h1>
-                <input id="name" type="text" placeholder="Nome Completo">
-                <input id="email" type="email" placeholder="Email">
-                <input id="message" type="text" placeholder="Sua Mensagem">
-            </div>
-            <div class="redes">
-                <i class='bx bxl-instagram' id="insta"></i>
-                <i class='bx bxl-whatsapp' id="wpp"></i>
-                <i class='bx bxl-gmail' id="gmail"></i>
-            </div>
-        </footer>
+    <footer id="footer">
+        <div class="message">
+            <h1>Mensagem:</h1>
+            <input id="name" type="text" placeholder="Nome Completo">
+            <input id="email" type="email" placeholder="Email">
+            <input id="message" type="text" placeholder="Sua Mensagem">
+        </div>
+        <div class="redes">
+            <i class='bx bxl-instagram' id="insta"></i>
+            <i class='bx bxl-whatsapp' id="wpp"></i>
+            <i class='bx bxl-gmail' id="gmail"></i>
+        </div>
+    </footer>
+    <script src="menu.js"></script>
 </body>
 
 </html>
